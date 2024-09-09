@@ -3,8 +3,6 @@ import SupportForm from "@/components/support.form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const runtime = "edge";
-
 export default function HomePage() {
   return (
     <main className="flex min-h-screen w-screen flex-col items-center justify-start gap-6 pb-5 pt-10">
