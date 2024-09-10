@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen w-screen flex-col items-center justify-start gap-6 pb-5 pt-10">
+    <main className="flex min-h-screen w-full flex-col items-center justify-start gap-6 pb-5 pt-10">
       <h1 className="text-4xl font-bold">Contact Us</h1>
       <Card className="w-full max-w-[500px]">
         <Tabs defaultValue="sales">
@@ -22,7 +22,11 @@ export default function HomePage() {
               </p>
               <SalesForm />
             </TabsContent>
+
             <TabsContent value="support">
+              <p className="mb-4 text-sm text-muted-foreground">
+                Troubleshot a technical issue or payment problem
+              </p>
               <SupportForm />
             </TabsContent>
           </CardContent>

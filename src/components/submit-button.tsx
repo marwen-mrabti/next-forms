@@ -1,12 +1,16 @@
+import { useFormStatus } from "react-dom";
 import { Button } from "./ui/button";
 
-interface SubmitButtonProps {
-  pending?: boolean;
-}
+export default function SubmitButton() {
+  const { pending } = useFormStatus();
 
-export default function SubmitButton({ pending }: Readonly<SubmitButtonProps>) {
   return (
-    <Button variant="default" type="submit" className="w-full">
+    <Button
+      variant="default"
+      type="submit"
+      className="w-full disabled:cursor-not-allowed"
+      disabled={pending}
+    >
       {pending ? (
         <span className="flex flex-nowrap items-center justify-center">
           <svg
