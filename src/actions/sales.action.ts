@@ -8,6 +8,14 @@ export async function talkToSales(prevState: unknown, formData: FormData) {
   const submission = parseWithZod(formData, {
     schema: SalesFormSchema,
   });
+  // Check honeypot field to detect bots
+  const honeypot = formData.get("honeypot") as string;
+  if (honeypot) {
+    // If honeypot field is filled, it's likely a bot
+    return submission.reply({
+      formErrors: ["bot detected"],
+    });
+  }
 
   // Validate the form
   if (submission.status !== "success") {

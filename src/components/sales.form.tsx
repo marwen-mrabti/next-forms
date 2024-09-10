@@ -24,6 +24,8 @@ export default function SalesForm() {
     shouldRevalidate: "onInput",
   });
 
+  console.log(lastResult);
+
   return (
     <form
       id={form.id}
@@ -35,14 +37,12 @@ export default function SalesForm() {
       aria-describedby={form.errors ? form.errorId : undefined}
     >
       <span className="text-xs font-semibold text-red-500">{form.errors}</span>
+      {/* protection against bots*/}
+      <Input type="text" name="honeypot" style={{ display: "none" }} />
+
       <div className="grid space-y-1">
         <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          name="name"
-          placeholder="Your name"
-          defaultValue={fields.name.value}
-        />
+        <Input id="name" name="name" placeholder="Your name" />
         <span className="text-xs text-red-500">{fields.name.errors}</span>
       </div>
       <div className="grid space-y-1">
@@ -52,7 +52,6 @@ export default function SalesForm() {
           name="email"
           type="email"
           placeholder="jhon.doe@example.com"
-          defaultValue={fields.email.value}
         />
         <span className="text-xs text-red-500">{fields.email.errors}</span>
       </div>
@@ -62,7 +61,6 @@ export default function SalesForm() {
           id="message"
           name="message"
           placeholder="Please share some details about your needs..."
-          defaultValue={fields.message.value}
           className="h-32"
         />
         <span className="text-xs text-red-500">{fields.message.errors}</span>

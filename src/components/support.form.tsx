@@ -36,6 +36,9 @@ export default function SupportForm() {
     >
       <span className="text-xs font-semibold text-red-500">{form.errors}</span>
 
+      {/* protection against bots*/}
+      <Input type="text" name="honeypot" style={{ display: "none" }} />
+
       <div className="grid space-y-1">
         <Label htmlFor="name">Name</Label>
         <Input id="name" name="name" placeholder="Your name" />

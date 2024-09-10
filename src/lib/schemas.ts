@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const SalesFormSchema = z.object({
+  honeypot: z.string(),
   name: z
     .string({ message: "name is required" })
     .trim()
@@ -19,6 +20,7 @@ export const SalesFormSchema = z.object({
 });
 
 export const SupportFormSchema = z.object({
+  honeypot: z.string(),
   name: z
     .string({ message: "name is required" })
     .trim()
